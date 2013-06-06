@@ -5,5 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_first_time">FirstTimeActivity</string>
-
+    <string name="menuitem_add_new">Add new</string>
+    <string name="thumb">Thumb</string>
+    
+    <string name="contact_name">Contact name</string>
 </resources>
