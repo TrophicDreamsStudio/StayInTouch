@@ -83,13 +83,13 @@ public class TabsFragmentActivity extends FragmentActivity implements OnTabChang
         mTabHost = (TabHost)findViewById(android.R.id.tabhost);
         mTabHost.setup();
         TabInfo tabInfo = null;
-        TabsFragmentActivity.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab1").setIndicator("Home"), ( tabInfo = new TabInfo("Tab1", Home.class, args)));
+        TabsFragmentActivity.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab1").setIndicator("",getResources().getDrawable(R.drawable.icon_home_tab)), ( tabInfo = new TabInfo("Tab1", Home.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        TabsFragmentActivity.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab2").setIndicator("Care Groups"), ( tabInfo = new TabInfo("Tab2", CareGroups.class, args)));
+        TabsFragmentActivity.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab2").setIndicator("",getResources().getDrawable(R.drawable.icon_caregroups_tab)), ( tabInfo = new TabInfo("Tab2", CareGroups.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        TabsFragmentActivity.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab3").setIndicator("Reminders"), ( tabInfo = new TabInfo("Tab3", Reminders.class, args)));
+        TabsFragmentActivity.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab3").setIndicator("",getResources().getDrawable(R.drawable.icon_reminders_tab)), ( tabInfo = new TabInfo("Tab3", Reminders.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        TabsFragmentActivity.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab4").setIndicator("Notifications"), ( tabInfo = new TabInfo("Tab3", Notifications.class, args)));
+        TabsFragmentActivity.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab4").setIndicator("",getResources().getDrawable(R.drawable.icon_notifications_tab)), ( tabInfo = new TabInfo("Tab3", Notifications.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
         // Default to first tab
         this.onTabChanged("Tab1");
