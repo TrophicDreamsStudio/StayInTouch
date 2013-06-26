@@ -1,10 +1,6 @@
 package com.tropicdreams.stayintouch;
 
 import com.tropicdreams.stayintouch.datasource.DBConnector;
-import com.tropicdreams.stayintouch.datasource.Database;
-
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
