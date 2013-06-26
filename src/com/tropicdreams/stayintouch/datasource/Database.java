@@ -6,13 +6,14 @@
 package com.tropicdreams.stayintouch.datasource;
 
 /**
- * @author LRB
+ * @author Samuel Okoroafor
  *
  */
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 
 public class Database extends SQLiteOpenHelper {
@@ -51,11 +52,15 @@ public class Database extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(CREATE_DATABASE);
+		Log.i("message", "database created");
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
-		db.execSQL("");
+		db.execSQL("DROP IF EXISTS "+ CAREGROUP_TABLE);
+		db.execSQL("DROP IF EXISTS "+ REMINDERS_TABLE);
+		db.execSQL("DROP IF EXISTS "+ CONTACT_TABLE);
+		Log.i("message", "database upgrade initiated");
 		onCreate(db);
 	}
 	
