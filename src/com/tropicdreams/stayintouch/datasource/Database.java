@@ -6,20 +6,21 @@
 package com.tropicdreams.stayintouch.datasource;
 
 /**
- * @author LRB
+ * @author Samuel Okoroafor
  *
  */
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 
 public class Database extends SQLiteOpenHelper {
 	private static final String MYDATABASE = "stayintouch.db";
-	private static final String CREATE_DATABASE = "create table contact (id integer primary key autoincrement, name text, groupid integer);"
-			+ "create table caregroups(id integer primary key autoincrement, name text,date_created text);"
-			+ "create table reminders(id integer primary key autoincrement,contactId text, date_to_launch text, status text);";
+	private static final String CREATE_CONTACTS = "create table contact (id integer primary key autoincrement, name text, groupid integer);";
+	private static final String CREATE_CAREGROUPS = "create table caregroups(id integer primary key autoincrement, name text,date_created text);";
+	private static final String CREATE_REMINDERS = "create table reminders(id integer primary key autoincrement,contactId text, date_to_launch text, status text);";
 	public static final String CAREGROUP_TABLE="caregroups";
 	public static final String CONTACT_TABLE="contact";
 	public static final String REMINDERS_TABLE="reminders";
@@ -50,12 +51,18 @@ public class Database extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		db.execSQL(CREATE_DATABASE);
+		db.execSQL(CREATE_CAREGROUPS);
+		db.execSQL(CREATE_CONTACTS);
+		db.execSQL(CREATE_REMINDERS);
+		Log.i("message", "database created");
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
-		db.execSQL("");
+		db.execSQL("DROP IF EXISTS "+ CAREGROUP_TABLE);
+		db.execSQL("DROP IF EXISTS "+ REMINDERS_TABLE);
+		db.execSQL("DROP IF EXISTS "+ CONTACT_TABLE);
+		Log.i("message", "database upgrade initiated");
 		onCreate(db);
 	}
 	

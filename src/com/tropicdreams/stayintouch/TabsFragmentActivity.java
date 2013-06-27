@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabContentFactory;
+import android.widget.TabWidget;
 
 public class TabsFragmentActivity extends FragmentActivity implements OnTabChangeListener{
 
@@ -50,7 +51,6 @@ public class TabsFragmentActivity extends FragmentActivity implements OnTabChang
             v.setMinimumHeight(0);
             return v;
         }
- 
     }
     
     /** (non-Javadoc)
@@ -80,8 +80,10 @@ public class TabsFragmentActivity extends FragmentActivity implements OnTabChang
      * Step 2: Setup TabHost
      */
     private void initialiseTabHost(Bundle args) {
-        mTabHost = (TabHost)findViewById(android.R.id.tabhost);
+        mTabHost = (TabHost)findViewById(android.R.id.tabhost);        
         mTabHost.setup();
+        TabWidget iwidget =mTabHost.getTabWidget();
+        iwidget.setStripEnabled(false);
         TabInfo tabInfo = null;
         TabsFragmentActivity.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab1").setIndicator("",getResources().getDrawable(R.drawable.icon_home_tab)), ( tabInfo = new TabInfo("Tab1", Home.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
@@ -95,6 +97,9 @@ public class TabsFragmentActivity extends FragmentActivity implements OnTabChang
         this.onTabChanged("Tab1");
         //
         mTabHost.setOnTabChangedListener(this);
+        
+//        iwidget.setSystemUiVisibility(TRIM_MEMORY_UI_HIDDEN);
+        //iwidget.setBackgroundColor(getResources().getColor(R.color.Black));
     }
     
     /**
