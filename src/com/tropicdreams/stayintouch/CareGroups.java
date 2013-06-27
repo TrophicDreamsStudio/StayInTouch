@@ -27,8 +27,7 @@ public class CareGroups extends Fragment {
             return null;
         }
         datasource= new ConnectCareGroup(getActivity());
-        datasource.open();
-        
+        datasource.open();        
         createData();
         return (LinearLayout)inflater.inflate(R.layout.care_groups_layout, container, false);
     }	
