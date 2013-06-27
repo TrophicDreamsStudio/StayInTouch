@@ -5,17 +5,15 @@
     tools:context=".TabsFragmentActivity" >
 
    <TabHost
-        android:id="@android:id/tabhost"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#000"
-        >
+       android:id="@android:id/tabhost"
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent" >
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical" 
-            android:background="#ecced4">
+            android:background="@drawable/backrepeat">
  
             <TabWidget
                 android:id="@android:id/tabs"
@@ -23,10 +21,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:orientation="horizontal"
-                android:showDividers="none"
-        
-                 
+                android:showDividers="none" 
                 />
  
             <FrameLayout
