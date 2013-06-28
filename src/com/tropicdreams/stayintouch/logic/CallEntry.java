@@ -5,7 +5,7 @@ import java.util.Date;
 
 
 
-public class CallLogEntry {
+public class CallEntry {
 	private  String PhoneNumber;
 	private Date CallDate;
 	
@@ -26,14 +26,20 @@ public class CallLogEntry {
 		PhoneNumber = phone;
 	}
 	
-	public CallLogEntry(String phone,Date calldate){
+	public CallEntry(String phone,Date calldate){
 		PhoneNumber = phone;
 		CallDate = calldate;
+	}
+	
+	//an alternative constructor for assigning just the Phone number
+	public CallEntry(String phone){
+		PhoneNumber = phone;
 	}
 	
 	@Override 
 	public String toString() {
 		
 		return String.format("Phone number : %s | Call date: %s", this.PhoneNumber, this.CallDate);
+		//return String.format("Phone number : %s ", this.PhoneNumber);
 	}
 }
