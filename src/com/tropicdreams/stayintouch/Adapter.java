@@ -42,7 +42,7 @@ public class Adapter extends BaseAdapter {
             vi = inflater.inflate(R.layout.list_row, null);
 
         TextView name=(TextView)vi.findViewById(R.id.list_name);
-        name.setText(data.get(position).get(CareList.KEY_NAME));
+        //name.setText(data.get(position).get(CareList.KEY_NAME));
         return vi;
     }
 }

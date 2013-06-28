@@ -1,9 +1,13 @@
 package com.tropicdreams.stayintouch.datasource;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.tropicdreams.stayintouch.model.CareGroup;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -16,6 +20,9 @@ public class ConnectCareGroup {
 	private SQLiteDatabase database;
 	private Database dbHelper;
 	private String LOGTAG= "message";
+	private String[] caregroupcolumns = new String[] {
+			Database.CAREGROUP_COLUMN_ID, Database.CAREGROUP_COLUMN_NAME,
+			Database.CAREGROUP_COLUMN_DATE };
 
 	public ConnectCareGroup(Context context) {
 		dbHelper = new Database(context);
