@@ -17,7 +17,6 @@ public class CareList extends ListFragment {
 	 */
 	Adapter adapter;
 	static String KEY_NAME = "name";
-	
 	ArrayList<HashMap<String, String>> contacts = new ArrayList<HashMap<String,String>>();
 	HashMap<String, String> map = new HashMap<String, String>();
 	
@@ -46,6 +45,6 @@ public class CareList extends ListFragment {
 	}
 
 	
-	
 
 }
+

@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 /**
  * @author LRB
@@ -16,6 +17,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class DBConnector implements DBConnect {
 	private SQLiteDatabase database;
 	private Database dbHelper;
+	private String LOGTAG= "message";
 	private String[] caregroupcolumns = new String[] {
 			Database.CAREGROUP_COLUMN_ID, Database.CAREGROUP_COLUMN_NAME,
 			Database.CAREGROUP_COLUMN_DATE };
@@ -29,10 +31,12 @@ public class DBConnector implements DBConnect {
 
 	public void open() throws SQLException {
 		database = dbHelper.getWritableDatabase();
+		Log.i(LOGTAG, "Dabase Opened");
 	}
 
 	public void close() throws SQLException {
 		dbHelper.close();
+		Log.i(LOGTAG, "Dabase Closed");
 	}
 
 	@Override

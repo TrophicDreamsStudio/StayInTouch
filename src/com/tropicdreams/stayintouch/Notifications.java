@@ -1,5 +1,6 @@
 package com.tropicdreams.stayintouch;
 
+import com.tropicdreams.stayintouch.datasource.DBConnector;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 public class Notifications extends Fragment {
+	DBConnector datasource;
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         if (container == null) {
@@ -20,7 +22,20 @@ public class Notifications extends Fragment {
             // the view hierarchy; it would just never be used.
             return null;
         }
+        datasource= new DBConnector(getActivity());
         return (LinearLayout)inflater.inflate(R.layout.notifications, container, false);
     }
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		datasource.open();
+	}
+	
+	@Override
+	public void onPause() {
+		super.onPause();
+		datasource.close();
+	}
 
 }
