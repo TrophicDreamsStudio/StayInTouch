@@ -1,7 +1,9 @@
 package com.tropicdreams.stayintouch;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
+import com.tropicdreams.stayintouch.logic.GroupSuggestion;
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,13 +15,13 @@ import android.widget.TextView;
 public class Adapter extends BaseAdapter {
     
     private Activity activity;
-    private ArrayList<HashMap<String, String>> data;
+    private ArrayList<GroupSuggestion> data;
     private static LayoutInflater inflater=null;
    // public ImageLoader imageLoader; 
     
-    public Adapter(Activity a, ArrayList<HashMap<String, String>> placesListItems) {
+    public Adapter(Activity a, ArrayList<GroupSuggestion> suggests) {
         activity = a;
-        data=placesListItems;
+        data=suggests;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
      //   imageLoader=new ImageLoader(activity.getApplicationContext());
     }
@@ -41,8 +43,10 @@ public class Adapter extends BaseAdapter {
         if(convertView==null)
             vi = inflater.inflate(R.layout.list_row, null);
 
-        TextView name=(TextView)vi.findViewById(R.id.list_name);
-        //name.setText(data.get(position).get(CareList.KEY_NAME));
+        TextView name = (TextView)vi.findViewById(R.id.list_name);
+        TextView sugg = (TextView)vi.findViewById(R.id.list_suggestion);
+        name.setText(data.get(position).getPhone());
+        sugg.setText(data.get(position).getSuggestion());
         return vi;
     }
 }

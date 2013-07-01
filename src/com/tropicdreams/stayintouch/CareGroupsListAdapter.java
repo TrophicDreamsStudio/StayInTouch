@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import com.tropicdreams.stayintouch.model.CareGroup;
 
-import android.R;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;

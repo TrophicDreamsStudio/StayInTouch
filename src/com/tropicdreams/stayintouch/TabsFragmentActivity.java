@@ -3,9 +3,11 @@ package com.tropicdreams.stayintouch;
 import java.util.HashMap;
 import android.os.Bundle;
 import android.content.Context;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TabHost;
@@ -157,7 +159,7 @@ public class TabsFragmentActivity extends FragmentActivity implements OnTabChang
         }
     }
  
-
+   
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

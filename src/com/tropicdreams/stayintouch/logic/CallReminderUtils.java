@@ -1,16 +1,8 @@
 package com.tropicdreams.stayintouch.logic;
 
 import android.app.Activity;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
-
-import android.app.Activity;
-import android.database.Cursor;
-import android.net.Uri;
-import java.util.Map;
-import java.util.HashMap;
 
 
 public class CallReminderUtils extends Activity{
