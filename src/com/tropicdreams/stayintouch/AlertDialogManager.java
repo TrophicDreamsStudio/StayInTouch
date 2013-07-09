@@ -2,6 +2,9 @@ package com.tropicdreams.stayintouch;
 
 import android.support.v4.app.DialogFragment;
 import java.util.ArrayList;
+
+import com.tropicdreams.stayintouch.adapter.SuggestionAdapter;
+import com.tropicdreams.stayintouch.fragments.CareList;
 import com.tropicdreams.stayintouch.logic.CallEntry;
 import com.tropicdreams.stayintouch.logic.CallFrequency;
 import com.tropicdreams.stayintouch.logic.CallLogsUtil;
@@ -20,7 +23,7 @@ public class AlertDialogManager extends DialogFragment {
 		 ArrayList<CallEntry> logEntries;
 	     ArrayList<CallFrequency> freqs ;
 	     ArrayList<GroupSuggestion> suggests;
-	     Adapter adapter;
+	     SuggestionAdapter adapter;
 
 		public static AlertDialogManager newInstance(int title) {
 			AlertDialogManager frag = new AlertDialogManager();
@@ -35,7 +38,7 @@ public class AlertDialogManager extends DialogFragment {
 			logEntries = util.getCallLogs();
 	        freqs = util.getCallLogFrequencies(logEntries);
 	        suggests = util.suggestCareGroups(freqs);
-	        adapter=new Adapter(context,R.layout.list_row, suggests);
+	        adapter=new SuggestionAdapter(context,R.layout.suggestion_list_row, suggests);
 	        
 	        LayoutInflater inflater = ((Activity)context).getLayoutInflater();
 	        View vi;

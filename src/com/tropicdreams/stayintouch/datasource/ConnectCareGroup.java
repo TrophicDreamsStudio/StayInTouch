@@ -36,10 +36,10 @@ public class ConnectCareGroup {
 
 	public CareGroup create(CareGroup careGroup){
 		ContentValues values= new ContentValues();
-		values.put(Database.CAREGROUP_COLUMN_NAME, careGroup.Name);
-		values.put(Database.CAREGROUP_COLUMN_DATE, careGroup.Date);
+	//	values.put(Database.CAREGROUP_COLUMN_NAME, careGroup.Name);
+	//	values.put(Database.CAREGROUP_COLUMN_DATE, careGroup.Date);
 		long insertId= database.insert(Database.CAREGROUP_TABLE, null, values);
-		careGroup.Id=insertId;
+	//	careGroup.Id=insertId;
 		return careGroup;
 	}
 	

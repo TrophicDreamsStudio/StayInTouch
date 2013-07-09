@@ -24,10 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       <!-- <activity
-            android:name="com.tropicdreams.stayintouch.FirstTimeActivity"
-            android:label="@string/title_activity_first_time" >
-        </activity>  --> 
+        <activity android:theme="@style/AppTheme" android:name="GroupDetailActivity"></activity>
     </application>
 
 </manifest>

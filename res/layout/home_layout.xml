@@ -9,7 +9,7 @@
         android:id="@+id/ListFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        class="com.tropicdreams.stayintouch.CareList"
+        class="com.tropicdreams.stayintouch.fragments.CareList"
         tools:layout="@android:layout/list_content"/>
 
 </LinearLayout>
