@@ -1,7 +1,13 @@
 package com.tropicdreams.stayintouch.logic;
 
-public class GroupSuggestion {
+import java.io.Serializable;
 
+public class GroupSuggestion implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4780868969187735572L;
 	private String phone;
 	private String suggestion;
 	

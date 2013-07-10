@@ -9,4 +9,12 @@
     <string name="thumb">Thumb</string>
     
     <string name="contact_name">Contact name</string>
+    
+    <string name="no_suggeestion_today">no suggeestion today</string>
+    
+    <string name="who_hooo_d">who hooo!!!:D</string>
+    
+    <string name="add">Add</string>
+    
+    <string name="imageview">Imageview</string>
 </resources>

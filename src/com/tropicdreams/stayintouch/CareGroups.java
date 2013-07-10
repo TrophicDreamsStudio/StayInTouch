@@ -1,19 +1,15 @@
 package com.tropicdreams.stayintouch;
 
-import com.tropicdreams.stayintouch.datasource.ConnectCareGroup;
-import com.tropicdreams.stayintouch.model.CareGroup;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 public class CareGroups extends Fragment {
-	ConnectCareGroup datasource;
-	private String LOGTAG= "message";
+	private static View view;
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         if (container == null) {
@@ -26,53 +22,17 @@ public class CareGroups extends Fragment {
             // the view hierarchy; it would just never be used.
             return null;
         }
-        datasource= new ConnectCareGroup(getActivity());
-        datasource.open();        
-        createData();
-        return (LinearLayout)inflater.inflate(R.layout.care_groups_layout, container, false);
+        if (view != null) {
+	        ViewGroup parent = (ViewGroup) view.getParent();
+	        if (parent != null)
+	            parent.removeView(view);
+	    }
+	    try {
+	        view = (LinearLayout)inflater.inflate(R.layout.care_groups_layout, container, false);
+	    } catch (InflateException e) {
+	        /* care group is already there, just return view as it is */
+	    }
+        return view;
     }	
-	
-	@Override
-	public void onPause() {
-		super.onPause();
-		datasource.close();
-	}
-	
-	@Override
-	public void onResume() {
-		super.onResume();
-		datasource.open();
-	}
-	
-	private void createData(){
-		CareGroup cg= new CareGroup();
-		cg.Name="Daily";
-		cg.Date="Today";
-		cg = datasource.create(cg);
-		Log.i(LOGTAG, "Care group created with id "+ cg.Id);
-		
-		cg = new CareGroup();
-		cg.Name="Weekly";
-		cg.Date="Today";
-		cg = datasource.create(cg);
-		Log.i(LOGTAG, "Care group created with id "+ cg.Id);
-		
-		cg = new CareGroup();
-		cg.Name="Monthly";
-		cg.Date="Today";
-		cg = datasource.create(cg);
-		Log.i(LOGTAG, "Care group created with id "+ cg.Id);
-		
-		cg = new CareGroup();
-		cg.Name="Annually";
-		cg.Date="Today";
-		cg = datasource.create(cg);
-		Log.i(LOGTAG, "Care group created with id "+ cg.Id);
-		
-		cg = new CareGroup();
-		cg.Name="Tomiwa";
-		cg.Date="Today";
-		cg = datasource.create(cg);
-		Log.i(LOGTAG, "Care group created with id "+ cg.Id);
-	}
+
 }

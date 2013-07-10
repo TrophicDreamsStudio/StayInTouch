@@ -13,7 +13,6 @@ public class CallLogsUtil {
 
 	Activity activity;
 	public CallLogsUtil(Activity act) {
-		// TODO Auto-generated constructor stub
 		activity = act;
 	}
 	
