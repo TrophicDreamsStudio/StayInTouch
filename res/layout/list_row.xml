@@ -13,7 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/list_name"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/profile_bg"
+        android:background="@drawable/example_profile"
+         />
 
     <!-- Name -->
     
@@ -34,11 +36,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/list_image"
         android:text=""
+        android:textAlignment="textStart"
         android:textColor="#040404"
-        android:textSize="15sp"
-        android:textStyle="bold"
+        android:textSize="14sp"
         android:typeface="sans" />
 
     <TextView
@@ -48,6 +51,9 @@
         android:layout_alignBottom="@+id/list_image"
         android:layout_alignLeft="@+id/list_name"
         android:text=""
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textColor="#040404"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        android:typeface="sans" />
 
 </RelativeLayout>
