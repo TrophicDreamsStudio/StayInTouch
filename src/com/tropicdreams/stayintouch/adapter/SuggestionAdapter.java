@@ -2,17 +2,21 @@ package com.tropicdreams.stayintouch.adapter;
 
 import java.util.ArrayList;
 
+import com.tropicdreams.stayintouch.CirclePix;
 import com.tropicdreams.stayintouch.R;
 import com.tropicdreams.stayintouch.fragments.CareList;
 import com.tropicdreams.stayintouch.logic.GroupSuggestion;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SuggestionAdapter extends ArrayAdapter<GroupSuggestion> {
@@ -22,6 +26,9 @@ public class SuggestionAdapter extends ArrayAdapter<GroupSuggestion> {
     private Context context; 
     
     CareList gtt = new CareList();
+    Bitmap bit;
+    CirclePix pix = new CirclePix();
+    
     
     
     public SuggestionAdapter(Context a, int layoutResourceId, ArrayList<GroupSuggestion> suggests) {
@@ -29,6 +36,7 @@ public class SuggestionAdapter extends ArrayAdapter<GroupSuggestion> {
         this.context = a;
         this.data = suggests;
         this.layoutResourceId = layoutResourceId;
+        this.bit = BitmapFactory.decodeResource(a.getResources(), R.drawable.tife);
     }
     
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -49,6 +57,10 @@ public class SuggestionAdapter extends ArrayAdapter<GroupSuggestion> {
         
         holder.name = (TextView)vi.findViewById(R.id.list_name);
         holder.phoneNumber = (TextView)vi.findViewById(R.id.list_suggestion);
+        holder.badge = (ImageView)vi.findViewById(R.id.list_image);
+        
+        
+        
         setRemoveButton(holder);
         setAddButton(holder);
         vi.setTag(holder);
@@ -60,6 +72,8 @@ public class SuggestionAdapter extends ArrayAdapter<GroupSuggestion> {
     private void setupItem(ContactHolder holder){
     	holder.name.setText(holder.contact.getPhone());
     	holder.phoneNumber.setText(holder.contact.getSuggestion());
+    	
+    	holder.badge.setImageBitmap(pix.getRoundedShape(bit));
     }
     
     public static class ContactHolder{
@@ -68,6 +82,7 @@ public class SuggestionAdapter extends ArrayAdapter<GroupSuggestion> {
     	TextView phoneNumber;
     	Button add;
     	Button remove;
+    	ImageView badge;
     }
     
     private void setRemoveButton(final ContactHolder holder){
